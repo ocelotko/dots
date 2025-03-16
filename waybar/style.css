@@ -1,0 +1,122 @@
+* {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 8.5pt;
+  font-weight: 800;
+  transition-property: background;
+  transition-duration: 0.5s;
+}
+
+#waybar.top {
+  background: rgba(22, 22, 23, 0.8)
+}
+
+#waybar.top > box.horizontal {
+  background: none;
+  padding: 2pt;
+}
+
+#workspaces {
+  margin-left: 12pt;
+}
+
+#workspaces button {
+  color: rgba(201, 199, 205, 0.5);
+}
+
+#workspaces button:not(:first-child) {
+  margin-left: 2pt;
+}
+
+#workspaces button.active {
+  color: #c9c7cd;
+}
+
+#workspaces button:hover, #workspaces button:focus {
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  transition: none;
+  border-color: transparent;
+}
+
+#workspaces button:hover:not(.active):not(.visible), #workspaces button:focus:not(.active):not(.visible) {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#clock {
+  color: #c9c7cd;
+}
+
+#window {
+  margin-left: 15pt;
+  margin-right: 20pt;
+}
+
+#memory {
+  color: #c9c7cd;
+  margin-right: 12pt;
+}
+
+@keyframes blink {
+  to {
+    opacity: 50;
+  }
+}
+#backlight {
+  color: #c9c7cd;
+  margin-right: 10pt;
+}
+
+#pulseaudio {
+  color: #c9c7cd;
+  margin-right: 10pt;
+}
+
+#battery {
+  color: #c9c7cd;
+  margin-right: 15pt;
+}
+
+#battery.full,
+#battery.good,
+#battery.charging,
+#battery.plugged {
+  color: #c9c7cd;
+}
+
+#battery.critical:not(.charging) {
+  color: #c9c7cd;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#custom-color-picker {
+  margin-right: 18pt;
+  font-size: 9pt;
+  color: #c9c7cd;
+}
+
+#custom-screenshot {
+  margin-right: 18pt;
+  font-size: 10pt;
+  color: #c9c7cd;
+}
+
+#custom-power {
+  margin-right: 14pt;
+  font-size: 10pt;
+  color: #c9c7cd;
+}
+
+tooltip {
+  background: black;
+  color: #c9c7cd;
+  border-radius: 5pt;
+}

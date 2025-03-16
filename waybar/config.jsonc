@@ -1,0 +1,101 @@
+[
+  {
+    "layer": "top",
+    "height": 32,
+    "gtk-layer-shell": true,
+    "reload_style_on_change": true,
+    "fixed-center": true,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": [
+      "memory",
+      "backlight",
+      "pulseaudio",
+      "battery",
+      "custom/color-picker",
+      "custom/screenshot",
+      "custom/power"
+    ],
+
+    "hyprland/workspaces": {
+      "all-outputs": true,
+      "format": "{icon}",
+      "format-icons": {
+        "urgent": "",
+        "focused": "",
+        "default": ""
+      },
+
+      "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
+      "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+      "active-only": false,
+      "on-click": "activate"
+    },
+
+    "clock": {
+      "format": "  {:%a %e %b %H:%M}",
+      "tooltip": false
+    },
+
+    "memory": {
+      "interval": 30,
+      "format": " Mem {used}GiB",
+      "max-length": 13,
+      "tooltip": false
+    },
+
+    "backlight": {
+      "format": "{icon} <b>{percent}%</b>",
+      "format-icons": ["󰃞", "󰃟", "󰃠"],
+      "tooltip": false
+    },
+
+    "pulseaudio": {
+      "format": "{icon} <b>{volume}%</b>",
+      "format-muted": " 󰝟 ",
+      "format-bluetooth": "{icon}  <b>{volume}%</b>",
+      "format-bluetooth-muted": "󰝟 ",
+      "format-icons": {
+        "headset": "",
+        "default": ["󰕿", "󰖀", "󰕾"]
+      },
+
+      "tooltip": true,
+      "on-click": "pavucontrol",
+      "ignored-sinks": ["JamesDSP Sink", "Easy Effects Sink", "HDA NVidia Digital Stereo (HDMI)"]
+    },
+
+    "battery": {
+      "format": "{icon} {capacity}%",
+      "format-plugged": " {capacity}%",
+      "format-icons": ["", "", "", "", ""],
+      "max-length": 25,
+      "tooltip": true,
+      "interval": 5,
+      "states": {
+        "good": 70,
+        "warning": 30,
+        "critical": 15
+      }
+    },
+
+    "custom/color-picker": {
+      "format": "",
+      "on-click": "hyprpicker -an && notify-send 'Colour copied to clipboard'", // Show the colour in the notification with wl-paste.
+      "tooltip-format": "Color Picker"
+    },
+
+    "custom/screenshot": {
+      "format": "",
+      "on-click": "~/.config/waybar/scripts/screenshot_full.sh",
+      "on-click-right": "~/.config/waybar/scripts/screenshot_area.sh",
+      "tooltip-format": "Left-click:  Full Screen Screenshot\nRight-click: Area Screenshot"
+    },
+
+    "custom/power": {
+      "format": "",
+      "tooltip": false,
+      "on-click": "wlogout"
+    }
+  }
+]
